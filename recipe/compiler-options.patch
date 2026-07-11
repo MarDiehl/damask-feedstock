@@ -1,11 +1,11 @@
---- damask-3.0.2.orig/src/CLI.f90	2025-06-09 22:58:28.212333133 +0200
-+++ damask-3.0.2/src/CLI.f90	2025-06-09 23:11:14.615495890 +0200
-@@ -126,7 +126,7 @@
+--- damask-3.1.0.orig/src/CLI.f90
++++ damask-3.1.0/src/CLI.f90
+@@ -327,7 +327,7 @@
+ !--------------------------------------------------------------------------------------------------
+ subroutine printCompileOptions() bind(C, name="F_printCompileOptions")
  
-   print'(/,1x,a)', 'Compiled with: '//compiler_version()
-   print'(1x,a)',   'Compiled on: '//CMAKE_SYSTEM
--  print'(1x,a)',   'Compiler options: '//compiler_options()
-+  !print'(1x,a)',   'Compiler options: '//compiler_options()
+-  print'(1x,a)', 'Compiler options: '//compiler_options()
++  !print'(1x,a)', 'Compiler options: '//compiler_options()
+   print'(1x,a)', 'Compiled for: '//CMAKE_SYSTEM_NAME//' on '//CMAKE_SYSTEM_PROCESSOR
  
-   ! https://github.com/jeffhammond/HPCInfo/blob/master/docs/Preprocessor-Macros.md
-   print'(/,1x,a)', 'Compiled on: '//__DATE__//' at '//__TIME__
+ end subroutine printCompileOptions

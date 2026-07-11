@@ -1,6 +1,6 @@
---- damask-3.0.2.orig/CMakeLists.txt	2025-06-09 22:58:28.210428485 +0200
-+++ damask-3.0.2/CMakeLists.txt	2025-06-10 06:03:23.727875226 +0200
-@@ -135,6 +135,7 @@
+--- damask-3.1.0.orig/CMakeLists.txt
++++ damask-3.1.0/CMakeLists.txt
+@@ -168,6 +168,7 @@
  
  file(STRINGS "$ENV{PETSC_DIR}/$ENV{PETSC_ARCH}/lib/petsc/conf/petscvariables" PETSC_EXTERNAL_LIB REGEX "PETSC_EXTERNAL_LIB_BASIC = .*$?")
  string(REPLACE "PETSC_EXTERNAL_LIB_BASIC = " "" PETSC_EXTERNAL_LIB "${PETSC_EXTERNAL_LIB}")
