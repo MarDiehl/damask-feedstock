@@ -46,7 +46,7 @@ outputs:
         - petsc * real_*
         - hdf5
         - hdf5 * mpi_{{ mpi }}_*
-        - libfyaml
+        - libfyaml  # [not osx]
         - zlib
         - fftw
         - fftw * mpi_{{ mpi }}_*
@@ -93,7 +93,7 @@ outputs:
         - petsc * real_*
         - hdf5
         - hdf5 * mpi_{{ mpi }}_*
-        - libfyaml
+        - libfyaml  # [not osx]
         - zlib
       run:
         - hypre
