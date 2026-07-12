@@ -1,6 +1,6 @@
-{% set build_number = 5 %}
-{% set version = "3.0.2" %}
-{% set sha256 = "82f9b3aefde87193c12a7c908f42b711b278438f6cad650918989e37fb6dbde4" %}
+{% set build_number = 0 %}
+{% set version = "3.1.0" %}
+{% set sha256 = "d1ba65a167aab221c13f003507aba17f663c53af94fc1cd4a47408008329def1" %}
 
 # win: no PETSc => only python
 
@@ -12,11 +12,8 @@ source:
   url: https://damask-multiphysics.org/download/damask-{{ version }}.tar.xz
   sha256: {{ sha256 }}
   patches:
-    - petsc-3.24.patch
     - HDF5-Fortran.patch
     - compiler-options.patch
-    - ldflags.patch
-    - libfyaml.patch
 
 build:
   number: {{ build_number }}
@@ -27,7 +24,7 @@ outputs:
   - name: damask-grid
     script: build_grid.sh
     build:
-      skip: true  # [win]
+      skip: true  # [win or ppc64le]
     requirements:
       build:
         - {{ compiler('c') }}
@@ -49,7 +46,7 @@ outputs:
         - petsc * real_*
         - hdf5
         - hdf5 * mpi_{{ mpi }}_*
-        - libfyaml
+        - libfyaml  # [not osx]
         - zlib
         - fftw
         - fftw * mpi_{{ mpi }}_*
@@ -74,7 +71,7 @@ outputs:
   - name: damask-mesh
     script: build_mesh.sh
     build:
-      skip: true  # [win]
+      skip: true  # [win or ppc64le]
     requirements:
       build:
         - {{ compiler('c') }}
@@ -96,7 +93,7 @@ outputs:
         - petsc * real_*
         - hdf5
         - hdf5 * mpi_{{ mpi }}_*
-        - libfyaml
+        - libfyaml  # [not osx]
         - zlib
       run:
         - hypre
